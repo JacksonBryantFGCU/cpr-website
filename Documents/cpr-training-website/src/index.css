@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,500;0,8..60,600;0,8..60,700;1,8..60,400;1,8..60,600&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-paper text-ink-900 font-sans antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif leading-tight text-ink-900;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal.delay-1 { transition-delay: 0.10s; }
+.reveal.delay-2 { transition-delay: 0.20s; }
+.reveal.delay-3 { transition-delay: 0.30s; }
+.reveal.delay-4 { transition-delay: 0.40s; }
+
+/* Drop cap */
+.drop-cap::first-letter {
+  font-family: 'Source Serif 4', ui-serif, Georgia, serif;
+  font-size: 3.25rem;
+  font-weight: 600;
+  line-height: 0.85;
+  float: left;
+  margin-right: 0.1em;
+  margin-top: 0.05em;
+  color: #E54B3C;
+}
+
+/* EKG marquee */
+@keyframes ekg-marquee {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.ekg-track {
+  animation: ekg-marquee 20s linear infinite;
+}
