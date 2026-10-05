@@ -15,29 +15,16 @@ const checkIcon = (
 
 const plans = [
   {
-    label: "Full Classroom",
-    price: "$90",
-    description: "Complete in-person BLS certification with full classroom instruction and hands-on skills training.",
+    label: "BLS Certification",
+    price: "$100",
+    description: "In-person BLS certification with hands-on skills training.",
     features: [
       "Initial and renewal classes",
       "Classroom + hands-on skills",
       "Small class size",
-      "Real-time instructor–student interaction",
       "Same-day certification",
     ],
     highlighted: true,
-  },
-  {
-    label: "Skills Only",
-    price: "$70",
-    description: "Focused hands-on skills session for those who have completed the online portion.",
-    features: [
-      "Small class size",
-      "Same-day certification",
-      "Manikins with feedback devices",
-      "Personalized hands-on instruction",
-    ],
-    highlighted: false,
   },
 ];
 
@@ -52,8 +39,7 @@ function Pricing() {
             Simple, transparent pricing.
           </h2>
           <p className="mt-4 text-ink-500 max-w-xl mx-auto leading-relaxed">
-            Choose the class format that fits your needs. Both options include
-            same-day AHA certification and small-group instruction.
+            Same-day AHA certification and small-group instruction.
           </p>
           <p className="mt-3 font-mono text-xs text-ink-400">
             Payment accepted via cash or online payment platforms — credit cards are not accepted.
@@ -61,7 +47,7 @@ function Pricing() {
         </div>
 
         {/* Two-column cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+        <div className="max-w-md mx-auto">
           {plans.map((plan) => (
             <div
               key={plan.label}
@@ -71,12 +57,6 @@ function Pricing() {
                   : "bg-white border border-ink-200"
               }`}
             >
-              {plan.highlighted && (
-                <span className="absolute -top-3 left-1/2 -translate-x-1/2 bg-crimson-500 text-white font-mono text-xs uppercase tracking-widest px-4 py-1 rounded-full">
-                  Most Popular
-                </span>
-              )}
-
               {/* Plan name */}
               <p className={`font-mono text-xs uppercase tracking-widest mb-4 ${plan.highlighted ? "text-crimson-400" : "text-ink-400"}`}>
                 {plan.label}
@@ -123,6 +103,12 @@ function Pricing() {
               </a>
             </div>
           ))}
+          <p className="mt-6 text-center text-sm text-ink-500">
+            Groups or other class needs?{" "}
+            <a href="#contact" className="font-semibold text-crimson-500 hover:underline">
+              Contact me for pricing
+            </a>
+          </p>
         </div>
       </div>
     </section>
